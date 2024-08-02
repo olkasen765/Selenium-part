@@ -1,5 +1,6 @@
 package com.myfirstseleniumproject;
 
+import com.myfirstseleniumproject.utilities.TestBase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,18 +12,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class day04_radiobutton {
+public class day04_radiobutton extends TestBase {
 
 
-    WebDriver driver;
-    @BeforeEach
-    public void setUp(){
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-
-    }
+//    WebDriver driver;
+//    @BeforeEach
+//    public void setUp(){
+//
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//
+//    }
 
 
     @Test
@@ -46,10 +47,10 @@ public class day04_radiobutton {
 
     }
 
-    @AfterEach
-    public void tearDown(){
-
-        driver.quit();
-    }
+//    @AfterEach
+//    public void tearDown(){
+//
+//        driver.quit();
+//    }
 
 }
