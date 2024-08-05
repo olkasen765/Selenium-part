@@ -1,5 +1,6 @@
 package com.myfirstseleniumproject;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,12 +26,12 @@ public class day04_xpath_css {
 
     @Test
     public void test01() throws InterruptedException {
-
+        Faker faker = new Faker();
         //When user go to the webpage https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
         //user enter username
-        driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
+        driver.findElement(By.xpath("//input[@name='username']")).sendKeys(faker.name().firstName());
 
         //user enter password
         WebElement password = driver.findElement(By.cssSelector("input[type='password']"));
@@ -42,7 +43,7 @@ public class day04_xpath_css {
         WebElement login = driver.findElement(By.tagName("button"));
 
         if (login.isDisplayed()) {
-            login.click();
+            driver.findElement(By.tagName("button")).click();
         }
 
         //isDisplayed for question mark
@@ -67,7 +68,3 @@ public class day04_xpath_css {
         driver.quit();
     }
 }
-
-
-
-
