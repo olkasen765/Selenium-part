@@ -9,7 +9,9 @@ public class day07_NewWindows extends TestBase {
 
     @Test
 
-    public void newWindowTest() throws InterruptedException {
+    public  void newWindowTest() throws InterruptedException {
+
+
         //Open the pages in 2 new windows and verify their  TITLES -> LinkedIn , Ebay
 
         driver.get("https://www.linkedin.com/");
@@ -36,13 +38,26 @@ public class day07_NewWindows extends TestBase {
 
         Thread.sleep(3000);
 
-        //We will go to linkedin window
-
+        // We will do to LinkedIn window
         driver.switchTo().window(LinkedIn);
+        Assertions.assertTrue(driver.getTitle().contains("LinkedIn"));
         Thread.sleep(3000);
 
-        //Then we will come back to again ebay window
+
+        // Then we will come back to aging ebay window
         driver.switchTo().window(eBay);
+        Assertions.assertTrue(driver.getTitle().contains("eBay"));
+        Thread.sleep(3000);
+
+        // Open 2 new tabs and verify their TITLES
+
+
+        // -> LinkedIn , Ebay
+        driver.switchTo().window(LinkedIn);
+
+        System.out.println("Driver.getCurrentUrl()" + driver.getCurrentUrl());
+        Assertions.assertTrue(driver.getTitle().contains("LinkedIn"));
+        Thread.sleep(3000);
 
 
 
@@ -50,4 +65,7 @@ public class day07_NewWindows extends TestBase {
 
 
     }
+
+
+
 }
